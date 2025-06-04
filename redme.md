@@ -4,6 +4,6 @@ git add . = aplicar as mudanças
 
 git commit -m "menssagens" = criei uma versão das mudanças aplicadas
 
-git push = Esta distribuindo para github
+git push = Esta distribuindo ou github
 
 npm run deploy = serve para atualização do site
