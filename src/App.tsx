@@ -7,8 +7,8 @@ import { ThreeDots } from "react-loader-spinner"
 type ProgressType = 'pending' | 'started' | 'done'
 
 type Message = {
-	role: 'user' | 'assistant'
-	content: string
+  role: 'user' | 'assistant'
+  content: string
   subject?: string
 }
 
@@ -18,7 +18,7 @@ function App() {
   const [chat, setChat] = useState<Message[]>([])
   const [loading, setLoading] = useState<boolean>(false)
 
-  function resetChat(){
+  function resetChat() {
     setProgress('pending')
     setChat([])
   }
@@ -50,7 +50,7 @@ function App() {
       setChat(text => [...text, messageGPT])
       setLoading(true)
       const questionGPT = await sendMessage([messageGPT])
-      setChat(text => [...text, { role: 'assistant', content: questionGPT.content}])
+      setChat(text => [...text, { role: 'assistant', content: questionGPT.content }])
       setLoading(false)
       return
     }
@@ -67,23 +67,23 @@ function App() {
     setLoading(false)
     setProgress('done')
   }
-  
+
   return (
     <div className="container">
       <div className="sidebar">
         <details open className="suggestion">
           <summary>Tópicos Sugeridos</summary>
-          <ItemSuggestion title="HTML" onClick={() => setTextarea('HTML')}/>
-          <ItemSuggestion title="CSS" onClick={() => setTextarea('CSS')}/>
-          <ItemSuggestion title="JavaScript" onClick={() => setTextarea('JavaScript')}/>
-          <ItemSuggestion title="TypeScript" onClick={() => setTextarea('TypeScript')}/>
+          <ItemSuggestion title="HTML" onClick={() => setTextarea('HTML')} />
+          <ItemSuggestion title="CSS" onClick={() => setTextarea('CSS')} />
+          <ItemSuggestion title="JavaScript" onClick={() => setTextarea('JavaScript')} />
+          <ItemSuggestion title="TypeScript" onClick={() => setTextarea('TypeScript')} />
         </details>
 
         <details open className="historic">
           <summary>Histórico</summary>
           {
             getHistoric().map(item => (
-              <ItemSuggestion title={item} onClick={() => setTextarea(item)}/>
+              <ItemSuggestion title={item} onClick={() => setTextarea(item)} />
             ))
           }
         </details>
@@ -92,7 +92,7 @@ function App() {
       <div className="content">
         {progress === 'pending' && (
           <div className="box-home">
-            <span>Olá, eu sou o</span>
+            <span>Sou o Danilo</span>
             <h1>Logi<span>.Q</span></h1>
             <p>
               Estou aqui para te ajudar nos seus estudos.
@@ -134,7 +134,7 @@ function App() {
             )}
 
             {loading && (
-              <ThreeDots 
+              <ThreeDots
                 visible={true}
                 height="30"
                 width="60"
@@ -147,11 +147,11 @@ function App() {
           </div>
         )}
 
-        
+
 
         {progress !== 'done' && (
           <div className="box-input">
-            <textarea 
+            <textarea
               value={textarea}
               onChange={element => setTextarea(element.target.value)}
               placeholder={
