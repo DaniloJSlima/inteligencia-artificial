@@ -6,7 +6,7 @@ type Message = {
 }
 
 const openai = new OpenAI({
-  apiKey: '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',
+  apiKey: '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',
   dangerouslyAllowBrowser: true
 })
 
